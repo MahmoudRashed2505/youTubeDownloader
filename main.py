@@ -45,11 +45,11 @@ def checkLink(url):
 def download_playlist(url):
     playlistName = input("Please Enter the playlist Name: ")
     os.mkdir(playlistName)
-    os.chdir("C:\\Users\\MahmoudHossamEldenIb\\Videos\\ytDownloader\\"+playlistName)
+    os.chdir("C:\\Users\\{YOUR_USERNAME}\\Videos\\ytDownloader\\"+playlistName)
     query = parse_qs(urlparse(url).query, keep_blank_values=True)
     playlist_id = query["list"][0]
     print('get all playlist items links from {}'.format(playlist_id))
-    youtube = googleapiclient.discovery.build("youtube", "v3", developerKey = "AIzaSyDll68Dzb-TliDCtFswncilmcMAhmaxoZA")
+    youtube = googleapiclient.discovery.build("youtube", "v3", developerKey = "{YOUR_API}")
     request = youtube.playlistItems().list(
         part = "snippet",
         playlistId = playlist_id,
